@@ -25,19 +25,19 @@ Before running the script, ensure you have the following:
 4. **Token Storage:**
 A token.json file will be generated automatically after the first successful authentication.
 
-***Installation***
+**Installation**
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/gmail-email-labeler.git
-cd gmail-email-labeler
+git clone https://github.com/emlori/gmail-labeler.git
+cd gmail-labeler
 ```
 2. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
-Place your credentials.json in the config/ directory.
 ```
+Place your credentials.json in a config/ directory.
 
 3. Place your credentials.json in the config/ directory.
 
@@ -57,7 +57,7 @@ Run the main script to fetch emails without specific labels:
 python main.py
 ```
 **Customizing Label Exclusions**
-Modify the unwanted_labels list in the script to specify the labels you want to exclude. Example:
+Modify the unwanted_labels list in the script to specify the emails that you don't want to label again. Example:
 
 ```python
 unwanted_labels = ["Newsletter", "Publicité", "Personnel", "Spam", "Notifications", "Réservations", "Important", "Poubelle"]
@@ -67,25 +67,22 @@ unwanted_labels = ["Newsletter", "Publicité", "Personnel", "Spam", "Notificatio
 The script will fetch emails that lack labels and utilize the LLM to categorize and label them intelligently.
 
 **File Structure**
-gmail-email-sorter/
+```bash
+gmail-labeler/
 ├── config/
 │   ├── credentials.json  # Google API credentials file
 │   ├── token.json        # Generated after authentication
 ├── main.py                 # Main script for fetching and labeling emails
 ├── modules/
 │   ├── gmail_authentication.py  # Gmail API authentication script
-│   ├── apply_label_to_email
-categorize_emails
-│   ├── delete_emails_from_category
-│   ├── delete_emails_from_label
-│   ├── fetch_emails
+│   ├── apply_label_to_email.py
+│   ├── categorize_emails.py
+│   ├── delete_emails_from_category.py
+│   ├── delete_emails_from_label.py
+│   ├── fetch_emails.py
 ├── requirements.txt        # Python dependencies
 ├── README.md               # Project documentation
-
-**Limitations**
-* Requires manual setup of Google Cloud Project and Gmail API credentials.
-Gmail API rate limits may apply for high-volume requests.
-* The LLM's accuracy depends on the quality of the model used.
+```
 
 **Contributing**
 Contributions are welcome! Feel free to submit a pull request or open an issue.
